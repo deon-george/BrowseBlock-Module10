@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Extension Abuse Analyzer</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Extension Abuse Analyzer</h1>
+            <p class="subtitle">Stage 1 & 2 - Discovery and Permission Risk Analysis</p>
+        </header>
+
+        <div class="controls">
+            <button id="scanBtn" class="primary-btn">Scan Installed Extensions</button>
+            <button id="refreshBtn" class="secondary-btn">Refresh</button>
+            <div class="status" id="status"></div>
+        </div>
+
+        <div class="summary" id="summary" style="display: none;">
+            <h2>Summary</h2>
+            <div class="summary-cards">
+                <div class="card">
+                    <span class="card-value" id="totalCount">0</span>
+                    <span class="card-label">Total Extensions</span>
+                </div>
+                <div class="card high-risk">
+                    <span class="card-value" id="highRiskCount">0</span>
+                    <span class="card-label">High Risk</span>
+                </div>
+                <div class="card medium-risk">
+                    <span class="card-value" id="mediumRiskCount">0</span>
+                    <span class="card-label">Medium Risk</span>
+                </div>
+                <div class="card low-risk">
+                    <span class="card-value" id="lowRiskCount">0</span>
+                    <span class="card-label">Low Risk</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="filters" id="filters" style="display: none;">
+            <label for="riskFilter">Filter by Risk:</label>
+            <select id="riskFilter">
+                <option value="all">All</option>
+                <option value="high">High Risk</option>
+                <option value="medium">Medium Risk</option>
+                <option value="low">Low Risk</option>
+            </select>
+        </div>
+
+        <div class="extensions-list" id="extensionsList">
+            <div class="empty-state">
+                <p>Click "Scan Installed Extensions" to analyze installed Chrome extensions</p>
+            </div>
+        </div>
+
+        <footer>
+            <small>Uses chrome.management API | Subject to browser permissions and restrictions</small>
+        </footer>
+    </div>
+    <script src="popup.js"></script>
+</body>
+</html>

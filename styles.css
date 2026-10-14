@@ -1,0 +1,386 @@
+/* Extension Abuse Analyzer Styles */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+        'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+        sans-serif;
+    background-color: #f5f7fa;
+    width: 450px;
+    min-height: 600px;
+    padding: 0;
+    color: #1a1a1a;
+}
+
+.container {
+    padding: 16px;
+}
+
+header {
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid #e0e0e0;
+}
+
+header h1 {
+    font-size: 20px;
+    color: #d32f2f;
+    margin-bottom: 4px;
+    font-weight: 600;
+}
+
+.subtitle {
+    font-size: 11px;
+    color: #666;
+    font-style: italic;
+}
+
+.controls {
+    margin-bottom: 16px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+}
+
+.primary-btn, .secondary-btn {
+    padding: 8px 16px;
+    font-size: 13px;
+    font-weight: 600;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.primary-btn {
+    background-color: #d32f2f;
+    color: white;
+}
+
+.primary-btn:hover {
+    background-color: #b71c1c;
+}
+
+.primary-btn:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+.secondary-btn {
+    background-color: #757575;
+    color: white;
+}
+
+.secondary-btn:hover {
+    background-color: #616161;
+}
+
+.status {
+    width: 100%;
+    font-size: 11px;
+    padding: 6px 8px;
+    border-radius: 4px;
+    min-height: 24px;
+    display: flex;
+    align-items: center;
+}
+
+.status.loading {
+    background-color: #e3f2fd;
+    color: #1565c0;
+}
+
+.status.success {
+    background-color: #e8f5e9;
+    color: #2e7d32;
+}
+
+.status.error {
+    background-color: #ffebee;
+    color: #c62828;
+}
+
+.summary {
+    margin-bottom: 16px;
+    background: white;
+    padding: 12px;
+    border-radius: 6px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.summary h2 {
+    font-size: 14px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.summary-cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+}
+
+.card {
+    background: #f5f5f5;
+    padding: 8px;
+    border-radius: 4px;
+    text-align: center;
+    border: 2px solid #e0e0e0;
+}
+
+.card-value {
+    display: block;
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 2px;
+}
+
+.card-label {
+    display: block;
+    font-size: 10px;
+    color: #666;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.card.high-risk {
+    background: #ffebee;
+    border-color: #f44336;
+}
+
+.card.high-risk .card-value {
+    color: #c62828;
+}
+
+.card.medium-risk {
+    background: #fff3e0;
+    border-color: #ff9800;
+}
+
+.card.medium-risk .card-value {
+    color: #ef6c00;
+}
+
+.card.low-risk {
+    background: #e8f5e9;
+    border-color: #4caf50;
+}
+
+.card.low-risk .card-value {
+    color: #2e7d32;
+}
+
+.filters {
+    margin-bottom: 12px;
+    font-size: 12px;
+}
+
+.filters label {
+    font-weight: 600;
+    margin-right: 6px;
+}
+
+.filters select {
+    padding: 4px 8px;
+    font-size: 11px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background: white;
+}
+
+.extensions-list {
+    max-height: 320px;
+    overflow-y: auto;
+    margin-bottom: 12px;
+}
+
+.empty-state {
+    text-align: center;
+    padding: 24px 12px;
+    color: #666;
+    font-size: 12px;
+    background: white;
+    border-radius: 6px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.extension-card {
+    background: white;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 6px;
+    border-left: 4px solid #4caf50;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    font-size: 11px;
+}
+
+.extension-card.high-border {
+    border-left-color: #f44336;
+}
+
+.extension-card.medium-border {
+    border-left-color: #ff9800;
+}
+
+.extension-card.low-border {
+    border-left-color: #4caf50;
+}
+
+.extension-header {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 6px;
+}
+
+.extension-icon {
+    width: 32px;
+    height: 32px;
+    flex-shrink: 0;
+    border-radius: 4px;
+    background: #f5f5f5;
+}
+
+.extension-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.extension-name {
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 4px;
+    word-break: break-word;
+    color: #1a1a1a;
+}
+
+.extension-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 8px;
+    font-size: 10px;
+}
+
+.risk-badge {
+    display: inline-block;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-weight: 700;
+    font-size: 9px;
+}
+
+.risk-high {
+    background: #ffebee;
+    color: #c62828;
+}
+
+.risk-medium {
+    background: #fff3e0;
+    color: #ef6c00;
+}
+
+.risk-low {
+    background: #e8f5e9;
+    color: #2e7d32;
+}
+
+.meta-item {
+    color: #666;
+}
+
+.meta-item.enabled {
+    color: #2e7d32;
+    font-weight: 600;
+}
+
+.meta-item.disabled {
+    color: #757575;
+}
+
+.extension-desc {
+    color: #555;
+    margin-bottom: 6px;
+    line-height: 1.4;
+    font-size: 10px;
+    word-break: break-word;
+}
+
+.perm-section {
+    margin-bottom: 4px;
+    color: #333;
+    line-height: 1.4;
+}
+
+.perm-tag {
+    display: inline-block;
+    background: #e3f2fd;
+    color: #1565c0;
+    padding: 1px 4px;
+    margin: 1px 2px;
+    border-radius: 3px;
+    font-size: 9px;
+    font-family: 'Courier New', monospace;
+}
+
+.perm-tag.host-perm {
+    background: #f3e5f5;
+    color: #6a1b9a;
+}
+
+.risk-factors {
+    margin-top: 6px;
+    margin-bottom: 6px;
+    background: #fffbf0;
+    padding: 5px;
+    border-radius: 4px;
+    border: 1px solid #ffe0b2;
+}
+
+.risk-factors ul {
+    margin-left: 14px;
+    margin-top: 3px;
+}
+
+.risk-factors li {
+    margin-bottom: 2px;
+    line-height: 1.3;
+    color: #e65100;
+}
+
+.extension-details {
+    margin-top: 4px;
+    color: #888;
+    font-size: 9px;
+}
+
+footer {
+    text-align: center;
+    padding-top: 8px;
+    border-top: 1px solid #e0e0e0;
+    color: #666;
+    font-size: 9px;
+}
+
+/* Scrollbar styling */
+.extensions-list::-webkit-scrollbar {
+    width: 6px;
+}
+
+.extensions-list::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 3px;
+}
+
+.extensions-list::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 3px;
+}
+
+.extensions-list::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
